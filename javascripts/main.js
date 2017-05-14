@@ -1,39 +1,47 @@
-var app = angular.module("AddressBook",[]);
-app.controller("AdressbookCtrl",($scope)=>{
+app.run((FIREBASE_CONFIG) => {
+    firebase.initializeApp(FIREBASE_CONFIG);
+});
+app.controller("AdressbookCtrl",($http, $q, $scope, FIREBASE_CONFIG)=>{
 	$scope.showAdressbookList= false;
 	$scope.showsearchAB= false;
 	$scope.toggleAdressBook=()=>{
 		$scope.showAdressbookList= !$scope.showAdressbookList;
 	};
-	$scope.adressbookItems =
-	[
-	{
-		name:"paddy drew",
-		tel:6153545766,
-		email:"paddy@gmail.com"
-	},
-	{
-		name:"rayen stewart",
-		tel:6153347675,
-		email:"rayen@yahoo.com"
-	},
-	{
-		name:"adam chris",
-		tel:6152229898,
-		email:"adam@hotmail.com"
-	},
-	{
-		name:"jak mena",
-		tel:6159890909,
-		email:"jak@gmail.com"
-	},
-	{
-		name:"andrew solomon",
-		tel:6151215565,
-		email:"andrew@yahoo.com"
-	},
+	$scope.addressBooks =[];
 
-	];
+	let getAddressBook = () => {
+        let addressBookz = [];
+        return new $q((resolve, reject) => {
+            $http.get(`${FIREBASE_CONFIG.databaseURL}/addressBooks.json`)
+                .then((fbItems) => {
+                    var itemCollection = fbItems.data;
+                    Object.keys(itemCollection).forEach((key) => {
+                        itemCollection[key].id = key;
+                        addressBookz.push(itemCollection[key]);
+                    });
+                    resolve(addressBookz);
+                    console.log("addressBookz in getAddressBook function", addressBookz);
+                })
+                .catch((error) => {
+                    reject(error);
+                    console.log("error in getAddressBook function :", error);
+                });
+        });
+    };
+
+    
+    let getItems = () => {
+        getAddressBook()
+            .then((addressBookz) => {
+                $scope.addressBooks = addressBookz;
+            }).catch((error) => {
+                console.log("error in getItems function :", error);
+            });
+    };
+
+    getItems();
+
+	
 
 	$scope.searchAB=()=>{
 		$scope.showsearchABList= !$scope.showsearchABList;

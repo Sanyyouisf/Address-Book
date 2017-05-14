@@ -17,20 +17,23 @@
 			        <button type="submit" class="btn btn-default" ng-click="searchAB()">search by name</button>
 	     		</form>
      		</div>
-			<div class="panel-footer" ng-repeat="item in adressbookItems" ng-show="showAdressbookList">
+			<div class="panel-footer" ng-repeat="item in addressBooks" ng-show="showAdressbookList">
 			  	{{item.name}} : {{item.tel}} - {{item.email}}
 			</div>
-			<div class="panel-footer" ng-repeat="item in adressbookItems | filter:{name: searchText}" ng-show="showsearchABList">
+			<div class="panel-footer" ng-repeat="item in addressBooks | filter:{name: searchText}" ng-show="showsearchABList">
 			  	{{item.name}} : {{item.tel}} - {{item.email}}
+			  	<p> {{item.address}} , {{item.state}} - {{item.zipcode}} </p>
 			</div>
  		</div>
 	</div>
 
 
-
+	<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
 	<script type="text/javascript" src="./lib/bower_components/jquery/dist/jquery.js"></script>
 	<script type="text/javascript" src="./lib/bower_components/bootstrap/dist/js/bootstrap.js"></script>
 	<script type="text/javascript" src="./lib/bower_components/angular/angular.min.js"></script>
+	<script type="text/javascript" src="./javascripts/app.js"></script>
+    <script type="text/javascript" src="./javascripts/AppConstant.js"></script>
 	<script type="text/javascript" src="./javascripts/main.js"></script>
 </body>
 </html>

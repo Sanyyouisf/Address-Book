@@ -1,4 +1,4 @@
 lib/bower_components
 .DS_Store
 lib/node_modules
-javascripts/AppConstant.js
+javascripts/appConstant.js

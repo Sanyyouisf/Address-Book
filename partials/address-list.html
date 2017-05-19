@@ -1,0 +1,17 @@
+<div class="panel panel-defaul">
+    <!-- <div class="panel-body ">
+            <form class="navbar-form navbar-left">
+                <button type="submit" class="btn btn-default" ng-click="toggleAdressBook()"> Display/Hide Address Book</button>
+                <input type="text" class="form-control" placeholder="Search" ng-model="searchText">
+                <button type="submit" class="btn btn-default" ng-click="searchAdressbookList()">search by name</button>
+                <button type="submit" class="btn btn-default" ng-click="newItem()">add new address</button>
+            </form>
+        </div> -->
+    <div class="panel-footer" ng-repeat="item in addressBooks" ng-show="showAdressbookList">
+        {{item.name}} : {{item.tel}} - {{item.email}}
+    </div>
+    <div class="panel-footer" ng-repeat="item in addressBooks | filter:{name: searchText}" ng-show="showsearchAdressbookList">
+        {{item.name}} : {{item.tel}} - {{item.email}}
+        <p> {{item.address}} , {{item.state}} - {{item.zipcode}} </p>
+    </div>
+</div>

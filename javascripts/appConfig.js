@@ -16,5 +16,9 @@ app.config(function($routeProvider){
 		templateUrl:'partials/address-view.html',
 		controller:'addressViewCtrl'
 	})
+	.when("/addressBooks/search",{
+		templateUrl:'partials/address-search.html',
+		controller:'addressSearchCtrl'
+	})
 	.otherwise("/addressBooks/view");
 });

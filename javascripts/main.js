@@ -26,41 +26,41 @@ app.controller("AdressbookCtrl",($http, $q, $scope, FIREBASE_CONFIG)=>{
  //    };
 
 
-    let getItems = () => {
-        getAddressBook()
-            .then((addressBookz) => {
-                $scope.addressBooks = addressBookz;
-                // $scope.showAdressbookList = true;
-            }).catch((error) => {
-                console.log("error in getItems function :", error);
-            });
-    };
+    // let getItems = () => {
+    //     getAddressBook()
+    //         .then((addressBookz) => {
+    //             $scope.addressBooks = addressBookz;
+    //             // $scope.showAdressbookList = true;
+    //         }).catch((error) => {
+    //             console.log("error in getItems function :", error);
+    //         });
+    // };
 
-    getItems();
+    // getItems();
 
-	let postNewAddress = (newAddress) => {
-        return new $q((resolve, reject) => {
-            $http.post(`${FIREBASE_CONFIG.databaseURL}/addressBooks.json`, JSON.stringify(newAddress))
-                .then((resultz) => {
-                    resolve(resultz);
-                })
-                .catch((error) => {
-                    reject(error);
-                    console.log("error in postNewAddress function",error);
-                });
-        });
-    };
+	// let postNewAddress = (newAddress) => {
+ //        return new $q((resolve, reject) => {
+ //            $http.post(`${FIREBASE_CONFIG.databaseURL}/addressBooks.json`, JSON.stringify(newAddress))
+ //                .then((resultz) => {
+ //                    resolve(resultz);
+ //                })
+ //                .catch((error) => {
+ //                    reject(error);
+ //                    console.log("error in postNewAddress function",error);
+ //                });
+ //        });
+ //    };
 
-    $scope.addNewAddress = () => {
-        // $scope.newTask.isCompleted = false;
-        postNewAddress($scope.newAddress)
-        .then((response) => {
-            $scope.newAddress = {};
-        }).catch((error) => {
-            console.log("error in addNewAddress", error);
-        });
+    // $scope.addNewAddress = () => {
+    //     // $scope.newTask.isCompleted = false;
+    //     postNewAddress($scope.newAddress)
+    //     .then((response) => {
+    //         $scope.newAddress = {};
+    //     }).catch((error) => {
+    //         console.log("error in addNewAddress", error);
+    //     });
 
-    };
+    // };
 
     $scope.toggleAdressBook=()=>{
 		$scope.showAdressbookList= !$scope.showAdressbookList;

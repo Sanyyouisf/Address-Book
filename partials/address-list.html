@@ -1,17 +1,18 @@
-<div class="panel panel-defaul">
-    <!-- <div class="panel-body ">
-            <form class="navbar-form navbar-left">
-                <button type="submit" class="btn btn-default" ng-click="toggleAdressBook()"> Display/Hide Address Book</button>
-                <input type="text" class="form-control" placeholder="Search" ng-model="searchText">
-                <button type="submit" class="btn btn-default" ng-click="searchAdressbookList()">search by name</button>
-                <button type="submit" class="btn btn-default" ng-click="newItem()">add new address</button>
-            </form>
-        </div> -->
-    <div class="panel-footer" ng-repeat="item in addressBooks" ng-show="showAdressbookList">
-        {{item.name}} : {{item.tel}} - {{item.email}}
+<div ng-repeat="item in addressBooks">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="col-xs-8">
+                <div class="col-xs-4"> {{item.name}}</div>
+                <div class="col-xs-3"> {{item.tel}} </div>
+                <div class="col-xs-4"> {{item.email}}</div>
+                <div class="col-xs-5"> {{item.address}}</div>
+                <div class="col-xs-2"> {{item.state}} </div>
+                <div class="col-xs-3"> {{item.zipcode}} </div>
+            </div>
+            <div class="col-xs-1 col-xs-offset-3">
+                <button class="btn btn-danger fa fa-trash-o" ng-click="deleteItem(item.id)"></button>
+            </div>
+        </div>
     </div>
-    <div class="panel-footer" ng-repeat="item in addressBooks | filter:{name: searchText}" ng-show="showsearchAdressbookList">
-        {{item.name}} : {{item.tel}} - {{item.email}}
-        <p> {{item.address}} , {{item.state}} - {{item.zipcode}} </p>
-    </div>
+</div>
 </div>

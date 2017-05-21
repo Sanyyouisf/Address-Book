@@ -12,7 +12,7 @@ app.config(function($routeProvider){
 		templateUrl:'partials/address-new.html',
 		controller:'addressNewCtrl'
 	})
-	.when("/addressBooks/view/:id",{
+	.when("/addressBooks/view",{
 		templateUrl:'partials/address-view.html',
 		controller:'addressViewCtrl'
 	})
@@ -20,9 +20,9 @@ app.config(function($routeProvider){
       	templateUrl:'partials/address-new.html',
       	controller:'addressEditCtrl'
     })
-	.when("/addressBooks/search",{
+	.when("/addressBooks/search/:id",{
 		templateUrl:'partials/address-search.html',
 		controller:'addressSearchCtrl'
-	})
-	.otherwise("/addressBooks/list");
+	});
+	// .otherwise("/addressBooks/list");
 });

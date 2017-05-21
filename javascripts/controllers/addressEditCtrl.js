@@ -4,20 +4,18 @@ app.controller("addressEditCtrl", function($location ,$routeParams ,$scope ,Addr
 
 	AddressFactory.getSingleAddress($routeParams.id)
 	.then ((results) => {
-		// console.log("results in addressEditCtrl is :",results);
 		$scope.newAddress = results.data;
 	}).catch ((error) => {
-		// console.log("error in Edit Address",error);
+		console.log("error in Edit Address",error);
 	});
 
 
 	$scope.addNewAddress = () => {
 		AddressFactory.editAdress($scope.newAddress)
 		.then(()=>{
-			// console.log("results in addNewAddress inside  addressEditCtrl is ", results);
 			$location.url("/addressBooks/list");
 		}).catch((error)=>{
-			console.log("error in addNewAddress inside  addressEditCtrl is :",error);
+			console.log("error in addNewAddress :",error);
 		});
 	};
 

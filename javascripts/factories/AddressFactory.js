@@ -39,10 +39,17 @@ app.factory("AddressFactory",function($http, $q,FIREBASE_CONFIG){
     };
 
 
-    let searchAddress = (id) => {
-    	console.log("you clicked on searchAddress");
+    let searchAddress = (address) => {
+        console.log("you clicked on searchAddress");
         return $q((resolve, reject) => {
-            $http.get(`${FIREBASE_CONFIG.databaseURL}/addressBooks/${id}.json`)
+            $http.get(`${FIREBASE_CONFIG.databaseURL}/addressBooks/${id}.json`,JSON.stringify({
+                name:address.name,
+                tel :address.tel,
+                email:address.email,
+                address:address.address,
+                zipcode:address.zipcode,
+                state:address.state
+            }))
                 .then((resultz) => {
                     resultz.data.id = id;
                     console.log("id in getSingleItem in factory is :",id);
@@ -53,6 +60,7 @@ app.factory("AddressFactory",function($http, $q,FIREBASE_CONFIG){
                 });
         });
     };
+
 
     let getSingleAddress= (id)=>{
         return $q((resolve,reject) =>{
@@ -91,7 +99,23 @@ app.factory("AddressFactory",function($http, $q,FIREBASE_CONFIG){
     };
 
 
+    let deletez = (addressId) => {
+        return $q ((resolve,reject) => {
+            $http.delete(`${FIREBASE_CONFIG.databaseURL}/addressBooks/${addressId}.json`)
+            .then((resultz) => {
+                resolve(resultz);
+            })
+            .catch((error) => {
+                reject(error);
+                console.log("error in deleteAdress in factory is : ",error);
+
+            });
+        });
+
+    };
 
 
-    return {getAddressList:getAddressList , postNewAddress:postNewAddress ,searchAddress:searchAddress, getSingleAddress:getSingleAddress ,editAdress:editAdress};
+
+
+    return {getAddressList:getAddressList , postNewAddress:postNewAddress ,searchAddress:searchAddress, getSingleAddress:getSingleAddress ,editAdress:editAdress ,deletez:deletez};
 });

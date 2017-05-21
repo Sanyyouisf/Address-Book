@@ -1,11 +1,13 @@
-<div class="panel-body">
-    <button class="btn btn-info"> <a ng-href="#!/addressBooks/edit/{{selectedAddress.id}}">Edit</a></button>
+<input type="text" class="form-control" placeholder="Search" ng-model="searchText">
+<div ng-repeate="item in addressBooks | filter : searchText">
+
     <div class="col-xs-8">
-        <div class="col-xs-4"> name : {{selectedAddress.name}}</div>
-        <div class="col-xs-3"> tel : {{selectedAddress.tel}} </div>
-        <div class="col-xs-4"> email : {{selectedAddress.email}}</div>
-        <div class="col-xs-5"> address : {{selectedAddress.address}}</div>
-        <div class="col-xs-2"> state : {{selectedAddress.state}} </div>
-        <div class="col-xs-3"> zipcode : {{selectedAddress.zipcode}} </div>
+        <div class="col-xs-4"> {{item.name}}</div>
+        <div class="col-xs-3"> {{item.tel}} </div>
+        <div class="col-xs-4"> {{item.email}}</div>
+        <div class="col-xs-5"> {{item.address}} </div>
+        <div class="col-xs-2"> {{item.state}} </div>
+        <div class="col-xs-3"> {{item.zipcode}} </div>
     </div>
+
 </div>

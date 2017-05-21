@@ -14,6 +14,4 @@ app.controller("addressNewCtrl", function($http, $q, $scope, $location, FIREBASE
 
     
 
-
-
 });

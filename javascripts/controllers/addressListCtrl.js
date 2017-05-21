@@ -5,7 +5,7 @@ app.controller("addressListCtrl", function($scope, AddressFactory){
 	let getAddress = () => {
 		AddressFactory.getAddressList()
 		.then((addressBooksz)=>{
-			console.log("addressBooksz in getAddress",addressBooksz);
+			// console.log("addressBooksz in getAddress",addressBooksz);
 			$scope.addressBooks = addressBooksz;
 		})
 		.catch((error)=>{

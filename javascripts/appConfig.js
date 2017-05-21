@@ -12,13 +12,17 @@ app.config(function($routeProvider){
 		templateUrl:'partials/address-new.html',
 		controller:'addressNewCtrl'
 	})
-	.when("/addressBooks/view",{
+	.when("/addressBooks/view/:id",{
 		templateUrl:'partials/address-view.html',
 		controller:'addressViewCtrl'
 	})
+	.when("/addressBooks/edit/:id", {
+      	templateUrl:'partials/address-new.html',
+      	controller:'addressEditCtrl'
+    })
 	.when("/addressBooks/search",{
 		templateUrl:'partials/address-search.html',
 		controller:'addressSearchCtrl'
 	})
-	.otherwise("/addressBooks/view");
+	.otherwise("/addressBooks/list");
 });

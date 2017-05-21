@@ -1,21 +1,16 @@
-app.controller('addressViewCtrl', function($scope, AddressFactory){
-	console.log("addressViewCtrl");
+app.controller('addressViewCtrl', function($routeParams, $scope, AddressFactory) {
+    console.log("addressViewCtrl");
 
-	// $scope.addressBooks =[];
+    // $scope.selectedAddress = {};
 
-	// let getAddress = () => {
-	// 	AddressFactory.getAddressList()
-	// 	.then((addressBookz)=>{
-	// 		console.log("addressBooksz in getAddress",addressBookz);
-	// 		$scope.addressBooks = addressBookz;
-	// 	})
-	// 	.catch((error)=>{
-	// 		console.log("error in get ddress",error);
-	// 	});
-	// };
-
-	// // getAddress();
-
+    // AddressFactory.getSingleAddress($routeParams.id)
+    //     .then((results) => {
+    //         console.log("results in getAddress", results);
+    //         $scope.selectedAddress = results.data;
+    //     })
+    //     .catch((error) => {
+    //         console.log("error in get ddress", error);
+    //     });
 
 
 });

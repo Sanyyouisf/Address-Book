@@ -12,57 +12,30 @@
  <h1>Address Book</h1>
     <div ng-include="'/partials/address-navbar.html'">
     </div>
-    <!-- <div ng-controller="AdressbookCtrl">
-        <div class="panel panel-default ">
-            <div class="panel-body ">
-                <form class="navbar-form navbar-left">
-                    <button type="submit" class="btn btn-default" ng-click="toggleAdressBook()"> Display/Hide Address Book</button>
-                    <input type="text" class="form-control" placeholder="Search" ng-model="searchText">
-                    <button type="submit" class="btn btn-default" ng-click="searchAdressbookList()">search by name</button>
-                    <button type="submit" class="btn btn-default" ng-click="newItem()">add new address</button>
-                </form>
-            </div>
-            <div class="panel-footer" ng-repeat="item in addressBooks" ng-show="showAdressbookList">
-                {{item.name}} : {{item.tel}} - {{item.email}}
-            </div>
-            <div class="panel-footer" ng-repeat="item in addressBooks | filter:{name: searchText}" ng-show="showsearchAdressbookList">
-                {{item.name}} : {{item.tel}} - {{item.email}}
-                <p> {{item.address}} , {{item.state}} - {{item.zipcode}} </p>
-            </div>
-        </div> -->
-    <!-- <div ng-show="newAdressbookList">
-            <h3>New Address</h3>
-            <form>
-                <input type="text" class="form-control col-md-6" placeholder="Full Name" ng-model="newAddress.name" />
-                <input type="text" class="form-control col-md-6" placeholder="tel" ng-model="newAddress.tel" />
-                <input type="text" class="form-control col-md-6" placeholder="email" ng-model="newAddress.email" />
-                <input type="text" class="form-control col-md-6" placeholder="address" ng-model="newAddress.address" />
-                <input type="text" class="form-control col-md-6" placeholder="zipcode" ng-model="newAddress.zipcode" />
-                <input type="text" class="form-control col-md-6" placeholder="state" ng-model="newAddress.state" />
-                <button class="btn btn-default " ng-click="addNewAddress()">Submit</button>
-            </form>
-        </div> -->
-    <!--   </div> -->
+
     <div class="container" ng-view>
     </div>
 
+    <!-- //THIRD PARTY JAVASCRIPT FILES -->
     <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
     <script type="text/javascript" src="./lib/bower_components/jquery/dist/jquery.js"></script>
     <script type="text/javascript" src="./lib/bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script type="text/javascript" src="./lib/bower_components/angular/angular.min.js"></script>
     <script type="text/javascript" src="./lib/bower_components/angular-route/angular-route.min.js"></script>
 
-    <script type="text/javascript" src="./javascripts/app.js"></script>
-    <script type="text/javascript" src="./javascripts/appConfig.js"></script>
-    <script type="text/javascript" src="./javascripts/appConstant.js"></script>
+    <!-- //PERSONAL JAVASCRIPT FILES -->
+    <script src="./javascripts/app.js"></script>
+    <script src="./javascripts/appConfig.js"></script>
+    <script src="./javascripts/appConstant.js"></script>
 
-    <script type="text/javascript" src="./javascripts/factories/AddressFactory.js"></script>
+    <script src="./javascripts/factories/AddressFactory.js"></script>
 
-    <script type="text/javascript" src="./javascripts/controllers/addressViewCtrl.js"></script>
-    <script type="text/javascript" src="./javascripts/controllers/addressListCtrl.js"></script>
-    <script type="text/javascript" src="./javascripts/controllers/addressNewCtrl.js"></script>
-    <script type="text/javascript" src="./javascripts/controllers/navbarCtrl.js"></script>
-    <script type="text/javascript" src="./javascripts/controllers/addressSearchCtrl.js"></script>  
+    <script src="./javascripts/controllers/addressViewCtrl.js"></script>
+    <script src="./javascripts/controllers/addressListCtrl.js"></script>
+    <script src="./javascripts/controllers/addressNewCtrl.js"></script>
+    <script src="./javascripts/controllers/navbarCtrl.js"></script>
+    <script src="./javascripts/controllers/addressEditCtrl.js"></script>
+    <script src="./javascripts/controllers/addressSearchCtrl.js"></script>  
 
     <!-- <script type="text/javascript" src="./javascripts/main.js"></script> -->
 </body>

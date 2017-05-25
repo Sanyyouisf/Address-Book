@@ -39,17 +39,33 @@ app.factory("AddressFactory",function($http, $q,FIREBASE_CONFIG){
     };
 
 
+    // let searchAddress = (address) => {
+    //     console.log("you clicked on searchAddress");
+    //     return $q((resolve, reject) => {
+    //         $http.get(`${FIREBASE_CONFIG.databaseURL}/addressBooks/${id}.json`,JSON.stringify({
+    //             name:address.name,
+    //             tel :address.tel,
+    //             email:address.email,
+    //             address:address.address,
+    //             zipcode:address.zipcode,
+    //             state:address.state
+    //         }))
+    //             .then((resultz) => {
+    //                 resultz.data.id = id;
+    //                 console.log("id in getSingleItem in factory is :",id);
+    //                 resolve(resultz);
+    //             })
+    //             .catch((error) => {
+    //                 reject(error);
+    //             });
+    //     });
+    // };
+
+
     let searchAddress = (address) => {
         console.log("you clicked on searchAddress");
         return $q((resolve, reject) => {
-            $http.get(`${FIREBASE_CONFIG.databaseURL}/addressBooks/${id}.json`,JSON.stringify({
-                name:address.name,
-                tel :address.tel,
-                email:address.email,
-                address:address.address,
-                zipcode:address.zipcode,
-                state:address.state
-            }))
+            $http.get(`${FIREBASE_CONFIG.databaseURL}/addressBooks/${id}.json`)
                 .then((resultz) => {
                     resultz.data.id = id;
                     console.log("id in getSingleItem in factory is :",id);

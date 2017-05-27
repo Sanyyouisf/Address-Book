@@ -20,9 +20,13 @@ app.config(function($routeProvider){
       	templateUrl:'partials/address-new.html',
       	controller:'addressEditCtrl'
     })
+    .when("/auth",{
+    	templateUrl:'/partials/auth.html',
+    	controller:'AuthCtrl'
+    })
 	.when("/addressBooks/search/:id",{
 		templateUrl:'partials/address-search.html',
 		controller:'addressSearchCtrl'
-	});
-	// .otherwise("/addressBooks/list");
+	})
+	.otherwise("/auth");
 });

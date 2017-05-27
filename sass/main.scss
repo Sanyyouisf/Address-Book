@@ -1,5 +1,7 @@
 @import "color";
-
 body {
-	background-color: $aqua;
+    background-color: $aqua;
+    .title h1 {
+        text-align: center;
+    }
 }

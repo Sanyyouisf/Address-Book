@@ -37,10 +37,6 @@ app.run(function($location, $rootScope, FIREBASE_CONFIG, AuthFactory) {
   });
 });
 
-// app.run(function(FIREBASE_CONFIG) {
-//     firebase.initializeApp(FIREBASE_CONFIG);
-// });
-
 app.config(function($routeProvider){
 	$routeProvider 
 	.when ("/addressBooks/list",{
@@ -73,7 +69,8 @@ app.config(function($routeProvider){
     })
 	.when("/addressBooks/search/:id",{
 		templateUrl:'partials/address-search.html',
-		controller:'addressSearchCtrl'
+		controller:'addressSearchCtrl',
+		resolve:{isAuth}
 	})
 	.otherwise("/auth");
 });

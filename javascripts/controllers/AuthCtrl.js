@@ -1,5 +1,6 @@
 app.controller("AuthCtrl",function($rootScope, $location,$scope, AuthFactory, UserFactory){
 	console.log("inside AuthCtrl ");
+	$scope.alerts=[];
 	$scope.auth = {};
 
 	let LogMeIn = () =>{
@@ -15,6 +16,7 @@ app.controller("AuthCtrl",function($rootScope, $location,$scope, AuthFactory, Us
 			console.log("$rootScope.user inside LogMeIn",$rootScope.user);
 			$location.url ('addressBooks/list');
 		}).catch((error) =>{
+			$scope.alerts.push({msg: error.message});
 			console.log("getUser error inside LogMeIn", error);
 		});
 	};
@@ -27,7 +29,7 @@ app.controller("AuthCtrl",function($rootScope, $location,$scope, AuthFactory, Us
 			//adding uid(coming from fb) to the $scope.auth 
 			//as we only enter email and password
 			$scope.auth.uid = didRegister.uid;
-			console.log("$scope.auth.uid  inside registerUser: ", $scope.auth.uid);
+			console.log("$scope.auth.uid  inside registerUser: ", $scope.auth);
     		return UserFactory.addUser($scope.auth);
     		//adding $scope.auth as a user -after adding the uid- to the fb.
     	},(error) => {
@@ -48,6 +50,14 @@ app.controller("AuthCtrl",function($rootScope, $location,$scope, AuthFactory, Us
     	AuthFactory.logout();
     	$rootScope.user={};
     }
+
+    $scope.addAlert = function() {
+    $scope.alerts.push({msg: 'Another alert!'});
+  };
+
+  $scope.closeAlert = function(index) {
+    $scope.alerts.splice(index, 1);
+  };
 
 
 

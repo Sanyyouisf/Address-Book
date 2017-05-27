@@ -1,13 +1,15 @@
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
+            <ul class="nav navbar-nav navbar-right" ng-if="user.uid">
                 <li><a href="#!/addressBooks/list">All Address</a></li>
                 <li><a href="#!/addressBooks/new">new Address</a></li>
                 <li><a href="#!/addressBooks/view">search</a></li>
                 <li><a href="#!/auth">logout</a></li>
             </ul>
+            <ul class="nav navbar-nav navbar-right" ng-if="!user.uid">
+                <li><a ng-href="#!/auth">Authenticate</a></li>
+            </ul>
         </div>
     </div>
 </nav>
-

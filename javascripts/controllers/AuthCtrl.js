@@ -9,9 +9,10 @@ app.controller("AuthCtrl",function($rootScope, $location,$scope, AuthFactory, Us
 			console.log("usercred inside LogMeIn",usercreds);
 			return UserFactory.getUser(usercreds.uid);
 		}).then((user)=>{
-			//the user we got here is the uid from the firebase.
 			console.log("user",user);
+			//the user we got here is the uid from the firebase.			
 			$rootScope.user = user;
+			console.log("$rootScope.user inside LogMeIn",$rootScope.user);
 			$location.url ('addressBooks/list');
 		}).catch((error) =>{
 			console.log("getUser error inside LogMeIn", error);
@@ -32,7 +33,7 @@ app.controller("AuthCtrl",function($rootScope, $location,$scope, AuthFactory, Us
     	},(error) => {
     		console.log("error in registerWithEmail in registerUser",error);
 		}).then((registerComplete)=>{
-    		console.log("registerComplete",registerComplete);
+    		// console.log("registerComplete",registerComplete);
     		LogMeIn();
     	}).catch((error)=>{
     		console.log("error in registerUser",error);
@@ -42,6 +43,11 @@ app.controller("AuthCtrl",function($rootScope, $location,$scope, AuthFactory, Us
 	$scope.loginUser = () => {
     	LogMeIn();
     };
+
+    if ( $location.path() === 'logout'){
+    	AuthFactory.logout();
+    	$rootScope.user={};
+    }
 
 
 

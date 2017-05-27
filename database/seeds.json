@@ -5,6 +5,7 @@
             "tel": 6153545766,
             "email": "paddy@gmail.com",
             "address": "4 Goldfield Rd. Honolulu",
+            "uid": "CEMOcrukVERV9Ktfb2oq4SYXuPX2",
             "zipcode": 96815,
             "state": "HI "
         },
@@ -13,6 +14,7 @@
             "tel": 6153347675,
             "email": "rayen@yahoo.com",
             "address": "70 Bowman St. South Windsor",
+            "uid": "CEMOcrukVERV9Ktfb2oq4SYXuPX2",
             "zipcode": 16074,
             "state": "CT "
         },
@@ -21,6 +23,7 @@
             "tel": 6152229898,
             "email": "adam@hotmail.com",
             "address": "514 S. Magnolia St. Orlando",
+            "uid": "EAx7mlptvwcAmTh7UsDkWRNLinq2",
             "zipcode": 32806,
             "state": "FL"
         },
@@ -29,6 +32,7 @@
             "tel": 6159890909,
             "email": "jak@gmail.com",
             "address": "23 6th St. Melbourne",
+            "uid": "EAx7mlptvwcAmTh7UsDkWRNLinq2",
             "zipcode": 32904,
             "state": "FL"
         },
@@ -37,18 +41,19 @@
             "tel": 6151215565,
             "email": "andrew@yahoo.com",
             "address": "44 Shirley Ave. West Chicago",
+            "uid": "EAx7mlptvwcAmTh7UsDkWRNLinq2",
             "zipcode": 60185,
             "state": "IL"
         }
     },
     "users": {
         "user0": {
-            "uid": "CEMOcrukVERV9Ktfb2oq4SYXuPX2",
-            "username": "a"
+            "uid": "No3RpaPgQiaPBd2ehYQWdvA0vcx1",
+            "username": "Sany45"
         },
         "user1": {
-            "uid": "EAx7mlptvwcAmTh7UsDkWRNLinq2",
-            "username": "b"
+            "uid": "kdRDBCIrLNdG9FsAUT58DDnGrGv1",
+            "username": "Sany"
         }
     }
 }

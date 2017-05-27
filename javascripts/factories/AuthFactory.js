@@ -26,7 +26,7 @@ app.factory("AuthFactory",function($q, $http, $rootScope, FIREBASE_CONFIG){
       firebase.auth().signInWithEmailAndPassword(credentials.email, credentials.password)
       .then((resultz) => {
         resolve(resultz);
-        console.log("resultz in authenticate inside AuthFactory ",resultz);
+        // console.log("resultz in authenticate inside AuthFactory ",resultz);
       }).catch((error) => {
         reject(error);
         console.log("error in authenticate inside AuthFactory", error);
@@ -41,7 +41,7 @@ app.factory("AuthFactory",function($q, $http, $rootScope, FIREBASE_CONFIG){
       firebase.auth().createUserWithEmailAndPassword(user.email, user.password)
       .then((resultz) => {
         resolve(resultz);
-        console.log("resultz in registerWithEmail inside AuthFactory ",resultz);
+        // console.log("resultz in registerWithEmail inside AuthFactory ",resultz);
       }).catch((error) => {
         reject(error);
         console.log("error in authenticate inside AuthFactory", error);

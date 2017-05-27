@@ -24,6 +24,10 @@ app.config(function($routeProvider){
     	templateUrl:'/partials/auth.html',
     	controller:'AuthCtrl'
     })
+    .when ("/logout", {
+    	templateUrl:'/partials/auth.html',
+    	controller:'AuthCtrl'
+    })
 	.when("/addressBooks/search/:id",{
 		templateUrl:'partials/address-search.html',
 		controller:'addressSearchCtrl'

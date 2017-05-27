@@ -8,7 +8,7 @@ app.factory("UserFactory", function($q, $http, FIREBASE_CONFIG) {
                 }))
             .then((storeUserSuccess) => {
                 resolve(storeUserSuccess);
-                console.log("storeUserSuccess in addUser inside UserFactory",storeUserSuccess);
+                // console.log("storeUserSuccess in addUser inside UserFactory",storeUserSuccess);
             })
             .catch((error) => {
                 reject(error);
@@ -22,7 +22,7 @@ app.factory("UserFactory", function($q, $http, FIREBASE_CONFIG) {
     	return $q ((resolve,resject)=>{
     		$http.get(`${FIREBASE_CONFIG.databaseURL}/users.json?orderBy="uid"&equalTo="${userId}"`)
     		.then((userObject)=>{
-    			console.log("userObject in getUser inside UserFactory ",userObject);
+    			// console.log("userObject in getUser inside UserFactory ",userObject);
     			//loop through userObject.data
     			let users = [];
     			Object.keys(userObject.data).forEach((key) => {
@@ -31,7 +31,7 @@ app.factory("UserFactory", function($q, $http, FIREBASE_CONFIG) {
             		console.log("userObject.data in getUser inside UserFactory",userObject.data[key]);
           		});
     			resolve(users[0]);
-    			console.log("users in getUser inside UserFactory after resolve ",users);
+    			console.log("users[0] in getUser inside UserFactory after resolve ",users[0]);
     		})
     		.catch((error)=>{
     			reject(error);

@@ -5,7 +5,7 @@ app.factory("AddressFactory",function($http, $q,FIREBASE_CONFIG){
         return  $q ((resolve, reject) => {
             $http.get(`${FIREBASE_CONFIG.databaseURL}/addressBooks.json?orderBy="uid"&equalTo="${userId}"`)
                 .then((fbItems) => {
-                    console.log("fbItems in getAddressList",fbItems);
+                    // console.log("fbItems in getAddressList",fbItems);
                     var itemCollection = fbItems.data;
                     if (itemCollection !== null){
                         // console.log("itemCollection in getAddressList",itemCollection);
@@ -48,7 +48,7 @@ app.factory("AddressFactory",function($http, $q,FIREBASE_CONFIG){
             $http.get(`${FIREBASE_CONFIG.databaseURL}/addressBooks/${id}.json`)
                 .then((resultz) => {
                     resultz.data.id = id;
-                    console.log("id in getSingleItem in factory is :",id);
+                    // console.log("id in getSingleItem in factory is :",id);
                     resolve(resultz);
                 })
                 .catch((error) => {

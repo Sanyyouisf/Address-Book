@@ -15,8 +15,8 @@ app.factory("AuthFactory",function($q, $http, $rootScope, FIREBASE_CONFIG){
 
 	// Kills browser cookie with firebase credentials
 	let logout = () => {
-		firebase.auth().signout();
-	};
+    firebase.auth().signOut();
+  };
 
 
 	//Firebase: Use input credentials to authenticate user.

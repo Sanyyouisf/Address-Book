@@ -18,7 +18,7 @@ app.run(function($location, $rootScope, FIREBASE_CONFIG, AuthFactory) {
   $rootScope.$on('$routeChangeStart', function(event, currRoute, prevRoute) {
     // checks to see if there is a current user
     var logged = AuthFactory.isAuthenticated();
-
+    console.log("logged is : ",logged );
     var appTo;
 
     // to keep error from being thrown on page refresh
@@ -51,7 +51,8 @@ app.config(function($routeProvider){
 	})
 	.when("/addressBooks/view",{
 		templateUrl:'partials/address-view.html',
-		controller:'addressViewCtrl'
+		controller:'addressViewCtrl',
+		resolve:{isAuth}
 	})
 	.when("/addressBooks/edit/:id", {
       	templateUrl:'partials/address-new.html',
@@ -62,7 +63,7 @@ app.config(function($routeProvider){
     	templateUrl:'/partials/auth.html',
     	controller:'AuthCtrl'
     })
-    .when ("/logout", {
+    .when ('/logout', {
     	templateUrl:'/partials/auth.html',
     	controller:'AuthCtrl',
     	resolve:{isAuth}

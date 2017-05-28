@@ -23,9 +23,10 @@ app.controller("AuthCtrl",function($rootScope, $location,$scope, AuthFactory, Us
 
 	$scope.registerUser = () => {
 		//adding new user
+		console.log("$scope.auth",$scope.auth);
 		AuthFactory.registerWithEmail($scope.auth)
 		.then((didRegister)=>{
-			console.log("you registered ", didRegister);
+			// console.log("you registered ", didRegister);
 			//adding uid(coming from fb) to the $scope.auth 
 			//as we only enter email and password
 			$scope.auth.uid = didRegister.uid;
@@ -46,21 +47,19 @@ app.controller("AuthCtrl",function($rootScope, $location,$scope, AuthFactory, Us
     	LogMeIn();
     };
 
-    if ( $location.path() === 'logout'){
+    if ($location.path()==='/logout'){
     	AuthFactory.logout();
     	$rootScope.user={};
+    	$location.url('/auth');
     }
 
     $scope.addAlert = function() {
     $scope.alerts.push({msg: 'Another alert!'});
-  };
+  	};
 
-  $scope.closeAlert = function(index) {
-    $scope.alerts.splice(index, 1);
-  };
-
-
-
+  	$scope.closeAlert = function(index) {
+    	$scope.alerts.splice(index, 1);
+  	};
 
 
 });

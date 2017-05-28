@@ -2,10 +2,11 @@
     <div class="container-fluid">
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right" ng-if="user.uid">
-                <li><a href="#!/addressBooks/list">All Address</a></li>
-                <li><a href="#!/addressBooks/new">new Address</a></li>
-                <li><a href="#!/addressBooks/view">search</a></li>
-                <li><a href="#!/auth">logout</a></li>
+                <li><a ng-href="#!/addressBooks/list">All Address</a></li>
+                <li><a ng-href="#!/addressBooks/new">New Address</a></li>
+                <li><a ng-href="#!/addressBooks/view">Search</a></li>
+                <!-- <li><a ng-href="#!/logout">logout</a></li> -->
+                <li><a ng-href="#!/logout">logout</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right" ng-if="!user.uid">
                 <li><a ng-href="#!/auth">Authenticate</a></li>

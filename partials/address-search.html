@@ -1,30 +1,27 @@
-<div class="panel-body" ng-repeat="selectedItem in addressBooks | filter:search">
-    <!-- <form class="navbar-form navbar-left">
-        <input type="text" class="form-control" placeholder="Search" ng-model="selectedItem.name">
-        <a ng-href="#!/addressBooks/search/{{selectedItem.id}}">
-            <button type="submit" class="btn btn-default">search by name</button>
-        </a>
-    </form> -->
-    <!-- <div class="col-xs-8">
-        <div class="col-xs-4"> {{selectedItem.name}}</div>
-        <div class="col-xs-3"> {{selectedItem.tel}} </div>
-        <div class="col-xs-4"> {{selectedItem.email}}</div>
-        <div class="col-xs-5"> {{selectedItem.address}}</div>
-        <div class="col-xs-2"> {{selectedItem.state}} </div>
-        <div class="col-xs-3"> {{selectedItem.zipcode}} </div>
-    </div> -->
+<input type="text" class="form-control search" placeholder="Search" ng-model="searchAddress">
+<div ng-repeat="selectedItem in addressBooks |filter:searchAddress">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="col-xs-8">
+                <div class="col-xs-4"> {{selectedItem.name}}</div>
+                <div class="col-xs-3"> {{selectedItem.tel}} </div>
+                <div class="col-xs-4"> {{selectedItem.email}}</div>
+                <div class="col-xs-5"> {{selectedItem.address}}</div>
+                <div class="col-xs-2"> {{selectedItem.state}} </div>
+                <div class="col-xs-3"> {{selectedItem.zipcode}} </div>
+            </div>
 
-   <!--  <div class="col-xs-1 col-xs-offset-1">
-        <a ng-href="#!/addressBooks/edit/{{selectedItem.id}}">
-            <button class="btn btn-danger fa fa-pencil-square-o"></button>
-        </a>
-    </div> -->
-
-    <form class="navbar-form navbar-left">
-        <input type="text" class="form-control" placeholder="Search" ng-model="search">
-        <a ng-href="#!/addressBooks/search/{{selectedItem.id}}">
-            <button type="submit" class="btn btn-default" ng-click="searchByName()">search by name</button>
-        </a>
-    </form>
-
+            <div class="col-xs-1 col-xs-offset-1">
+                <a ng-href="#!/addressBooks/edit/{{selectedItem.id}}">
+                    <button class="btn btn-danger fa fa-pencil-square-o"></button>
+                </a>
+            </div>
+            <div class="col-xs-1 col-xs-offset-1">
+                <a ng-href="#!/addressBooks/list">
+                    <button class="btn btn-danger fa fa-trash-o" ng-click="deleteAddress(selectedItem.id)">
+                    </button>
+                </a>
+            </div>
+        </div>
+    </div>
 </div>

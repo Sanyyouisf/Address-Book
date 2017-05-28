@@ -1,2 +1,6 @@
 body {
   background-color: #00ffff; }
+  body .title h1 {
+    text-align: center; }
+  body .search {
+    margin-bottom: 25px; }

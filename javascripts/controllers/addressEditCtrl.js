@@ -5,6 +5,8 @@ app.controller("addressEditCtrl", function($location ,$routeParams ,$scope ,Addr
 	AddressFactory.getSingleAddress($routeParams.id)
 	.then ((results) => {
 		$scope.newAddress = results.data;
+		console.log("results in edit",results);
+		console.log("$scope.newAddress in edit",$scope.newAddress);
 	}).catch ((error) => {
 		console.log("error in Edit Address",error);
 	});

@@ -1,7 +1,10 @@
 app.controller("AuthCtrl",function($rootScope, $location,$scope, AuthFactory, UserFactory){
 	console.log("inside AuthCtrl ");
 	$scope.alerts=[];
-	$scope.auth = {};
+	$scope.auth = {
+    	email:"s@s.com",
+    	password:"111111"
+    };
 
 	let LogMeIn = () =>{
 		AuthFactory.authenticate($scope.auth)

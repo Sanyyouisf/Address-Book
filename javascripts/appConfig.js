@@ -49,11 +49,6 @@ app.config(function($routeProvider){
 		controller:'addressNewCtrl',
 		resolve:{isAuth}
 	})
-	.when("/addressBooks/view",{
-		templateUrl:'partials/address-view.html',
-		controller:'addressViewCtrl',
-		resolve:{isAuth}
-	})
 	.when("/addressBooks/edit/:id", {
       	templateUrl:'partials/address-new.html',
       	controller:'addressEditCtrl',
@@ -68,9 +63,9 @@ app.config(function($routeProvider){
     	controller:'AuthCtrl',
     	resolve:{isAuth}
     })
-	.when("/addressBooks/search/:id",{
+	.when("/addressBooks/search",{
 		templateUrl:'partials/address-search.html',
-		controller:'addressSearchCtrl',
+		controller:'addressListCtrl',
 		resolve:{isAuth}
 	})
 	.otherwise("/auth");

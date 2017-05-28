@@ -10,13 +10,12 @@ app.controller("AuthCtrl",function($rootScope, $location,$scope, AuthFactory, Us
 		AuthFactory.authenticate($scope.auth)
 		.then((usercreds)=>{
 			//usercreds is the same as results inside AuthFactory
-			console.log("usercred inside LogMeIn",usercreds);
 			return UserFactory.getUser(usercreds.uid);
 		}).then((user)=>{
 			console.log("user",user);
+			// console.log("usercreds.uid",usercreds.uid);
 			//the user we got here is the uid from the firebase.			
 			$rootScope.user = user;
-			console.log("$rootScope.user inside LogMeIn",$rootScope.user);
 			$location.url ('addressBooks/list');
 		}).catch((error) =>{
 			$scope.alerts.push({msg: error.message});
@@ -26,14 +25,15 @@ app.controller("AuthCtrl",function($rootScope, $location,$scope, AuthFactory, Us
 
 	$scope.registerUser = () => {
 		//adding new user
-		console.log("$scope.auth",$scope.auth);
+		console.log("$scope.auth.username",$scope.auth.username);
 		AuthFactory.registerWithEmail($scope.auth)
 		.then((didRegister)=>{
 			// console.log("you registered ", didRegister);
 			//adding uid(coming from fb) to the $scope.auth 
 			//as we only enter email and password
 			$scope.auth.uid = didRegister.uid;
-			console.log("$scope.auth.uid  inside registerUser: ", $scope.auth);
+			$rootScope.username = $scope.auth.Username;
+			console.log("$rootScope.username  inside registerUser: ", $rootScope.username);
     		return UserFactory.addUser($scope.auth);
     		//adding $scope.auth as a user -after adding the uid- to the fb.
     	},(error) => {

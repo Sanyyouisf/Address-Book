@@ -1,6 +1,7 @@
 {
     "addressBooks": {
         "addressBook0": {
+            "uid": "6PNXCRrMM9bDJIet7sASIjjPUbD2",
             "name": "paddy drew",
             "tel": 6153545766,
             "email": "paddy@gmail.com",
@@ -9,6 +10,7 @@
             "state":"HI "
         },
         "addressBook1": {
+            "uid": "6PNXCRrMM9bDJIet7sASIjjPUbD2",
             "name": "rayen stewart",
             "tel": 6153347675,
             "email": "rayen@yahoo.com",
@@ -17,6 +19,7 @@
             "state":"CT "
         },
         "addressBook2": {
+            "uid": "6PNXCRrMM9bDJIet7sASIjjPUbD2",
             "name": "adam chris",
             "tel": 6152229898,
             "email": "adam@hotmail.com",
@@ -25,6 +28,7 @@
             "state":"FL"
         },
         "addressBook3": {
+            "uid": "r2QzX1GKFjfHYtOWHKTYKVR5ITE2",
             "name": "jak mena",
             "tel": 6159890909,
             "email": "jak@gmail.com",
@@ -33,6 +37,7 @@
             "state":"FL"
         },
         "addressBook4": {
+            "uid": "r2QzX1GKFjfHYtOWHKTYKVR5ITE2",
             "name": "andrew solomon",
             "tel": 6151215565,
             "email": "andrew@yahoo.com",
@@ -40,5 +45,15 @@
             "zipcode":60185,
             "state":"IL"
         }
-    }
+    },
+    "users": {
+            "user0": {
+                "uid": "6PNXCRrMM9bDJIet7sASIjjPUbD2",
+                "username": "SANY YOUSIF"
+            },
+            "user1": {
+                "uid": "r2QzX1GKFjfHYtOWHKTYKVR5ITE2",
+                "username": "SANY2 YOUSIF2"
+            }
+        }
 }

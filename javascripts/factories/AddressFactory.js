@@ -24,6 +24,29 @@ app.factory("AddressFactory",function($http, $q,FIREBASE_CONFIG){
         });
     };
 
+    let getAddressListForUser = (UserId) => {
+        userAddressList = [];
+        return $q((resolve, reject) => {
+            $http.get(`${FIREBASE_CONFIG.databaseURL}/addressBooks.json?orderBy="uid"&equalTo="${UserId}"`)
+                .then((fbChildren) => {
+                    console.log("fbChildren.data in AddressFactory :",fbChildren.data);
+                    var AddressListCollection = fbChildren.data;
+                    if (AddressListCollection !== null) {
+                        Object.keys(AddressListCollection).forEach((key) => {
+                            AddressListCollection[key].id = key;
+                            userAddressList.push(AddressListCollection[key]);
+                        });
+                    }
+                    resolve(userAddressList);
+                    console.log("selectedAddressList :",userAddressList);
+                })
+                .catch((error) => {
+                    reject(error);
+                    console.log("error in getAddressListForUser :", error);
+                });
+        });
+    };
+
 
     let postNewAddress = (newAddress) => {
         return $q((resolve, reject) => {
@@ -134,5 +157,5 @@ app.factory("AddressFactory",function($http, $q,FIREBASE_CONFIG){
 
 
 
-    return {getAddressList:getAddressList , postNewAddress:postNewAddress ,searchAddress:searchAddress, getSingleAddress:getSingleAddress ,editAdress:editAdress ,deletez:deletez};
+    return {getAddressListForUser :getAddressListForUser ,getAddressList:getAddressList , postNewAddress:postNewAddress ,searchAddress:searchAddress, getSingleAddress:getSingleAddress ,editAdress:editAdress ,deletez:deletez};
 });

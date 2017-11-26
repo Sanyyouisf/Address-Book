@@ -1,0 +1,14 @@
+<nav class="navbar navbar-default" >
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right" ng-if="user.uid">
+                <li><a ng-href="#!/addressBooks/list">List</a></li>
+                <li><a ng-href="#!/addressBooks/new">new Address</a></li>
+                <li><a ng-href="#!/addressBooks/view">search</a></li>
+                <li><a >Hello {{user.username}}</a></li>
+                <li><a ng-href="#!/logout"">logout</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+

@@ -1,3 +1,3 @@
-app.controller('navbarCtrl', function($scope, AddressFactory){
-	console.log("navbarCtrl");
-});
+// app.controller('NavCtrl', function($scope, AddressFactory){
+// 	console.log("NavCtrl");
+// });

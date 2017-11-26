@@ -30,6 +30,7 @@ app.factory("AddressFactory",function($http, $q,FIREBASE_CONFIG){
             $http.post(`${FIREBASE_CONFIG.databaseURL}/addressBooks.json`, JSON.stringify(newAddress))
                 .then((resultz) => {
                     resolve(resultz);
+                    console.log("resultz",resultz);
                 })
                 .catch((error) => {
                     reject(error);

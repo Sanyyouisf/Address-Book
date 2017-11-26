@@ -1,17 +1,16 @@
-app.controller("addressNewCtrl", function($http, $q, $scope, $location, FIREBASE_CONFIG, AddressFactory) {
+app.controller("addressNewCtrl", function($http, $q,$rootScope, $scope, $location, FIREBASE_CONFIG, AddressFactory) {
 
-    $scope.addNewAddress = () => {
-        AddressFactory.postNewAddress($scope.newAddress)
-            .then((response) => {
-                $scope.newAddress = {};
-                $location.url("addressBooks/list"); //switch views
-            }).catch((error) => {
-                console.log("error in addNewAddress", error);
-            });
-    };
-
-
-
-    
+    $scope.addNewAddress = ()=>{
+		$scope.newAddress.uid = $rootScope.user.uid;
+		AddressFactory.postNewAddress($scope.newAddress)
+		.then((reponse)=>{
+			console.log("reponse in Ctrl :",reponse);
+			$scope.newChild= {};
+			$location.url('/addressBooks/list');
+		})
+		.catch((error)=>{
+			console.log("error in addNewAddress :",error);
+		});
+	};
 
 });

@@ -23,4 +23,52 @@ app.controller("addressListCtrl", function($scope, AddressFactory) {
             });
     };
 
+
+    var students =[
+    {
+        Id:"1",
+        FirstName: "Beginner guy FirstName",
+        LastName:"Beginner guy LastName",
+        GPA:3,
+        StudentRank:"Beginner"
+    },
+    {
+        Id:"2",
+        FirstName: "Advanced guy FirstName",
+        LastName:"Advanced guy LastName",
+        GPA:3.7,
+        StudentRank:"Advanced"
+    },
+    {
+        Id:"3",
+        FirstName: "Advanced guy FirstName",
+        LastName:"Advanced guy LastName",
+        GPA:3.5,
+        StudentRank:"Advanced"
+    }
+]
+
+
+function AvgGPA (students) {
+    var sum = 0 ;
+    var counter =0; 
+    for (var i=0 ; i<students.length ;++i){
+        if (students[i].StudentRank === "Advanced" ){
+            sum += students[i].GPA ;
+            counter += 1 ;
+        };
+    }
+
+    console.log("sum/counter before:",sum/counter);
+    
+     var AvgGPA = sum/counter;
+    console.log("AvgGPA before:",AvgGPA);
+
+    // return AvgGPA;
+    return AvgGPA;
+    console.log("AvgGPA after:",{AvgGPA});
+};
+
+AvgGPA (students);
+
 });

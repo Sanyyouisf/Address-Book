@@ -1,4 +1,4 @@
-app.controller("addressListCtrl", function($scope, AddressFactory,$rootScope) {
+app.controller("listAddressCtrl", function($scope, AddressFactory,$rootScope) {
     $scope.selectedList = [];
 
     let displayUserList = () => {

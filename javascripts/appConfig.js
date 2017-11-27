@@ -48,24 +48,24 @@ app.config(function($routeProvider){
         controller:'authCtrl'
     })
 	.when ("/addressBooks/list",{
-		templateUrl:'partials/address-list.html',
-		controller:'addressListCtrl'
+		templateUrl:'partials/listAddress.html',
+		controller:'listAddressCtrl'
 	})
 	.when("/addressBooks/new",{
-		templateUrl:'partials/address-new.html',
-		controller:'addressNewCtrl'
+		templateUrl:'partials/newAddress.html',
+		controller:'newAddressCtrl'
 	})
 	.when("/addressBooks/view",{
 		templateUrl:'partials/address-view.html',
 		controller:'addressViewCtrl'
 	})
 	.when("/addressBooks/edit/:id", {
-      	templateUrl:'partials/address-new.html',
-      	controller:'addressEditCtrl'
+      	templateUrl:'partials/editAddress.html',
+      	controller:'editAddressCtrl'
     })
 	.when("/addressBooks/search/:id",{
-		templateUrl:'partials/address-search.html',
-		controller:'addressSearchCtrl'
+		templateUrl:'partials/searchAddress.html',
+		controller:'searchAddressCtrl'
 	})
 	.when('/logout',{
         templateUrl:'partials/auth.html',

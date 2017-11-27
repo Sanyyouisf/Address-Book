@@ -1,5 +1,5 @@
-app.controller("addressSearchCtrl", function($location,$routeParams,$scope, AddressFactory){
-   console.log("addressSearchCtrl"); 
+app.controller("searchAddressCtrl", function($location,$routeParams,$scope, AddressFactory){
+   console.log("searchAddressCtrl"); 
     $scope.searchedAddress={};
 
     AddressFactory.getSingleAddress($routeParams.id)

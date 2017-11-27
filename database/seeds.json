@@ -2,48 +2,58 @@
     "addressBooks": {
         "addressBook0": {
             "uid": "6PNXCRrMM9bDJIet7sASIjjPUbD2",
-            "name": "paddy drew",
-            "tel": "(615)354-5766",
+            "firstName": "paddy",
+            "lastName": "drew",
+            "tel": "(615) 354 57 66",
             "email": "paddy@gmail.com",
             "address":"4 Goldfield Rd. Honolulu",
             "zipcode":96815,
-            "state":"HI "
+            "state":"HI ",
+            "Relationship":"frind"
         },
         "addressBook1": {
             "uid": "6PNXCRrMM9bDJIet7sASIjjPUbD2",
-            "name": "rayen stewart",
-            "tel": "(615)334-7675",
+            "firstName": "rayen",
+            "lastName": "stewart",
+            "tel": "(615) 334 76 75",
             "email": "rayen@yahoo.com",
             "address":"70 Bowman St. South Windsor",
             "zipcode":16074,
-            "state":"CT "
+            "state":"CT ",
+            "Relationship":"frind"
         },
         "addressBook2": {
             "uid": "6PNXCRrMM9bDJIet7sASIjjPUbD2",
-            "name": "adam chris",
-            "tel": 6152229898,
+            "firstName": "adam",
+            "lastName": "chris",
+            "tel": "(615) 222 98 98",
             "email": "adam@hotmail.com",
             "address":"514 S. Magnolia St. Orlando",
             "zipcode":32806,
-            "state":"FL"
+            "state":"FL",
+            "Relationship":"family"
         },
         "addressBook3": {
             "uid": "r2QzX1GKFjfHYtOWHKTYKVR5ITE2",
-            "name": "jak mena",
-            "tel": 6159890909,
+            "firstName": "jak",
+            "lastName": "mena",
+            "tel": "(615) 989 09 09",
             "email": "jak@gmail.com",
             "address":"23 6th St. Melbourne",
             "zipcode":32904,
-            "state":"FL"
+            "state":"FL",
+            "Relationship":"family"
         },
         "addressBook4": {
             "uid": "r2QzX1GKFjfHYtOWHKTYKVR5ITE2",
-            "name": "andrew solomon",
-            "tel": 6151215565,
+            "firstName": "andrew",
+            "lastName": "solomon",
+            "tel": "(615) 121 55 65",
             "email": "andrew@yahoo.com",
             "address":"44 Shirley Ave. West Chicago",
             "zipcode":60185,
-            "state":"IL"
+            "state":"IL",
+            "Relationship":"Other"
         }
     },
     "users": {

@@ -1,17 +1,19 @@
-<div class="textSearch">
-    <input type="text" class="form-control" placeholder="Search For ..." ng-model="searchText">
+<div class="searchText ">
+    <input type="text" class ="input-lg"  placeholder="Search For ..." ng-model="searchText">
 </div>
+
 <div ng-repeat="item in selectedList | filter: searchText">
     <div class="panel panel-default">
         <div class="panel-body">
 
             <div class="col-xs-8">
-                <div class="col-xs-4"> {{item.name}}</div>
+                <div class="col-xs-1"> {{item.firstName}}</div>
+                <div class="col-xs-1"> {{item.lastName}}</div>
                 <div class="col-xs-3"> {{item.tel}} </div>
-                <div class="col-xs-4"> {{item.email}}</div>
+                <!-- <div class="col-xs-4"> {{item.email}}</div>
                 <div class="col-xs-5"> {{item.address}}</div>
                 <div class="col-xs-2"> {{item.state}} </div>
-                <div class="col-xs-3"> {{item.zipcode}} </div>
+                <div class="col-xs-3"> {{item.zipcode}} </div> -->
             </div>
 
             <div class="col-xs-1 col-xs-offset-1">

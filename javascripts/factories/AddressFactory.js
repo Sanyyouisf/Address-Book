@@ -46,7 +46,8 @@ app.factory("AddressFactory",function($http, $q,FIREBASE_CONFIG){
         return $q ((resolve,reject)=>{
             $http.put(`${FIREBASE_CONFIG.databaseURL}/addressBooks/${address.id}.json`,JSON.stringify({
                 uid:address.uid,
-                name:address.name,
+                firstName:address.firstName,
+                lastName:address.lastName,
                 tel :address.tel,
                 email:address.email,
                 address:address.address,

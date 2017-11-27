@@ -4,9 +4,8 @@ app.controller("listAddressCtrl", function($scope, AddressFactory,$rootScope) {
     let displayUserList = () => {
         AddressFactory.getAddressListForUser($rootScope.user.uid)
         .then((result) => {
-            console.log("result in list ctrl :",result);
             $scope.selectedList = result;
-            })
+        })
         .catch((error) => {
             console.log("error in displayUserList: ", error);
         });
@@ -16,10 +15,12 @@ app.controller("listAddressCtrl", function($scope, AddressFactory,$rootScope) {
 
 
     $scope.deleteAddress = (id) => {
+        console.log("id inside deleteAddress ",id);
         AddressFactory.deletez(id)
-            .then(() => {
-                getAddress();
-            }).catch((error) => {
+            .then((responce) => {
+                displayUserList();
+            })
+            .catch((error) => {
                 console.log("deleteAddress error", error);
             });
     };

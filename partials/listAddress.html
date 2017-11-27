@@ -1,4 +1,7 @@
-<div ng-repeat="item in selectedList">
+<div class="textSearch">
+    <input type="text" class="form-control" placeholder="Search For ..." ng-model="searchText">
+</div>
+<div ng-repeat="item in selectedList | filter: searchText">
     <div class="panel panel-default">
         <div class="panel-body">
 

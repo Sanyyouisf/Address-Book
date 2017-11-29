@@ -6,7 +6,7 @@ Using Angular to create a fully functional address book. Exercise demonstrates i
 ![Blog Screengrab](https://github.com/Sanyyouisf/Address-Book/blob/ReadMe/ReadmePic/LoginPage.png)
 
 ### Profile page
-![Blog Screengrab](https://github.com/Sanyyouisf/Address-Book/blob/ReadMe/ReadmePic/LoginPage.png)
+![Blog Screengrab](https://github.com/Sanyyouisf/Address-Book/blob/ReadMe/ReadmePic/ProfilePage.png)
 
 ## Add new address 
 ![Blog Screengrab](https://github.com/Sanyyouisf/Address-Book/blob/ReadMe/ReadmePic/AddNewAddress.png)

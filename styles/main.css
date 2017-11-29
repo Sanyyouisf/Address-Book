@@ -1,2 +1,8 @@
 body {
   background-color: #00ffff; }
+
+.mainHeader {
+  text-align: center; }
+
+.searchText {
+  margin: 20px 40%; }

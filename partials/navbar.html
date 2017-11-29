@@ -1,0 +1,13 @@
+<nav class="navbar navbar-default" >
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-left" ng-if="user.uid">
+            <li ><a href="#"> {{user.username}}'s Address Book</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right" ng-if="user.uid">
+            <li ><a ng-href="#!/addressBooks/list">List</a></li>
+            <li ><a ng-href="#!/addressBooks/new">new Address</a></li>
+            <li ><a ng-href="#!/logout"">logout</a></li>
+        </ul>
+    </div>
+</nav>
+

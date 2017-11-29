@@ -1,79 +1,23 @@
 app.factory("AddressFactory",function($http, $q,FIREBASE_CONFIG){
 
-	let getAddressList = () => {
-        let addressBookz = [];
-        return  $q ((resolve, reject) => {
-            $http.get(`${FIREBASE_CONFIG.databaseURL}/addressBooks.json`)
-                .then((fbItems) => {
-                    console.log("fbItems in getAddressList",fbItems);
-                    var itemCollection = fbItems.data;
-                    // console.log("itemCollection in getAddressList",itemCollection);
-                    Object.keys(itemCollection).forEach((key) => {
-                        // console.log("key getAddressList before",key);
-                        itemCollection[key].id = key;
-                        addressBookz.push(itemCollection[key]);//the result addressBookz is array of objects.of the address books.
-                        // console.log("addressBookz in loop getAddressList is:",addressBookz);
-                    });
-                    resolve(addressBookz);
-                    console.log("addressBookz in after getAddressList is :",addressBookz);
-                })
-                .catch((error) => {
-                    reject(error);
-                    console.log("error in getAddressBook function :", error);
-                });
-        });
-    };
 
-
-    let postNewAddress = (newAddress) => {
+    let getAddressListForUser = (UserId) => {
+        userAddressList = [];
         return $q((resolve, reject) => {
-            $http.post(`${FIREBASE_CONFIG.databaseURL}/addressBooks.json`, JSON.stringify(newAddress))
-                .then((resultz) => {
-                    resolve(resultz);
-                    console.log("resultz",resultz);
+            $http.get(`${FIREBASE_CONFIG.databaseURL}/addressBooks.json?orderBy="uid"&equalTo="${UserId}"`)
+                .then((fbChildren) => {
+                    var AddressListCollection = fbChildren.data;
+                    if (AddressListCollection !== null) {
+                        Object.keys(AddressListCollection).forEach((key) => {
+                            AddressListCollection[key].id = key;
+                            userAddressList.push(AddressListCollection[key]);
+                        });
+                    }
+                    resolve(userAddressList);
                 })
                 .catch((error) => {
                     reject(error);
-                    console.log("error in postNewAddress in factory is :",error);
-                });
-        });
-    };
-
-
-    // let searchAddress = (address) => {
-    //     console.log("you clicked on searchAddress");
-    //     return $q((resolve, reject) => {
-    //         $http.get(`${FIREBASE_CONFIG.databaseURL}/addressBooks/${id}.json`,JSON.stringify({
-    //             name:address.name,
-    //             tel :address.tel,
-    //             email:address.email,
-    //             address:address.address,
-    //             zipcode:address.zipcode,
-    //             state:address.state
-    //         }))
-    //             .then((resultz) => {
-    //                 resultz.data.id = id;
-    //                 console.log("id in getSingleItem in factory is :",id);
-    //                 resolve(resultz);
-    //             })
-    //             .catch((error) => {
-    //                 reject(error);
-    //             });
-    //     });
-    // };
-
-
-    let searchAddress = (address) => {
-        console.log("you clicked on searchAddress");
-        return $q((resolve, reject) => {
-            $http.get(`${FIREBASE_CONFIG.databaseURL}/addressBooks/${id}.json`)
-                .then((resultz) => {
-                    resultz.data.id = id;
-                    console.log("id in getSingleItem in factory is :",id);
-                    resolve(resultz);
-                })
-                .catch((error) => {
-                    reject(error);
+                    console.log("error in getAddressListForUser :", error);
                 });
         });
     };
@@ -83,9 +27,8 @@ app.factory("AddressFactory",function($http, $q,FIREBASE_CONFIG){
         return $q((resolve,reject) =>{
             $http.get(`${FIREBASE_CONFIG.databaseURL}/addressBooks/${id}.json`)
             .then((resultz)=>{
-                 resultz.data.id = id;
+                resultz.data.id = id;
                 resolve(resultz);
-                console.log("resultz in getSingleAddress in factory is :",resultz);
             })
             .catch((error) => {
                 reject(error);
@@ -95,10 +38,12 @@ app.factory("AddressFactory",function($http, $q,FIREBASE_CONFIG){
     };
 
 
-    let editAdress = (address) => {
+    let editAddress = (address) => {
         return $q ((resolve,reject)=>{
             $http.put(`${FIREBASE_CONFIG.databaseURL}/addressBooks/${address.id}.json`,JSON.stringify({
-                name:address.name,
+                uid:address.uid,
+                firstName:address.firstName,
+                lastName:address.lastName,
                 tel :address.tel,
                 email:address.email,
                 address:address.address,
@@ -116,11 +61,27 @@ app.factory("AddressFactory",function($http, $q,FIREBASE_CONFIG){
     };
 
 
-    let deletez = (addressId) => {
+    let postNewAddress = (newAddress) => {
+        return $q((resolve, reject) => {
+            $http.post(`${FIREBASE_CONFIG.databaseURL}/addressBooks.json`,
+                    JSON.stringify(newAddress))
+                .then((storeAddressSuccess) => {
+                    resolve(storeAddressSuccess);
+                })
+                .catch((error) => {
+                    reject(error);
+                    console.log("error in addChild :", error);
+                });
+        });
+    };
+
+
+    let deletez = (addressBookId) => {
         return $q ((resolve,reject) => {
-            $http.delete(`${FIREBASE_CONFIG.databaseURL}/addressBooks/${addressId}.json`)
+            $http.delete(`${FIREBASE_CONFIG.databaseURL}/addressBooks/${addressBookId}.json`)
             .then((resultz) => {
                 resolve(resultz);
+                console.log ("resultz in deletez factory :", resultz);
             })
             .catch((error) => {
                 reject(error);
@@ -132,7 +93,5 @@ app.factory("AddressFactory",function($http, $q,FIREBASE_CONFIG){
     };
 
 
-
-
-    return {getAddressList:getAddressList , postNewAddress:postNewAddress ,searchAddress:searchAddress, getSingleAddress:getSingleAddress ,editAdress:editAdress ,deletez:deletez};
+    return {getAddressListForUser:getAddressListForUser, postNewAddress:postNewAddress , getSingleAddress:getSingleAddress , editAddress: editAddress ,deletez:deletez};
 });

@@ -4,56 +4,51 @@
             "uid": "6PNXCRrMM9bDJIet7sASIjjPUbD2",
             "firstName": "paddy",
             "lastName": "drew",
-            "tel": "(615) 354 57 66",
+            "tel": 6153545766,
             "email": "paddy@gmail.com",
             "address":"4 Goldfield Rd. Honolulu",
             "zipcode":96815,
-            "state":"HI ",
-            "Relationship":"frind"
+            "state":"HI "
         },
         "addressBook1": {
             "uid": "6PNXCRrMM9bDJIet7sASIjjPUbD2",
             "firstName": "rayen",
             "lastName": "stewart",
-            "tel": "(615) 334 76 75",
+            "tel": 6153347675,
             "email": "rayen@yahoo.com",
             "address":"70 Bowman St. South Windsor",
             "zipcode":16074,
-            "state":"CT ",
-            "Relationship":"frind"
+            "state":"CT "
         },
         "addressBook2": {
             "uid": "6PNXCRrMM9bDJIet7sASIjjPUbD2",
             "firstName": "adam",
             "lastName": "chris",
-            "tel": "(615) 222 98 98",
+            "tel": 6152229898,
             "email": "adam@hotmail.com",
             "address":"514 S. Magnolia St. Orlando",
             "zipcode":32806,
-            "state":"FL",
-            "Relationship":"family"
+            "state":"FL"
         },
         "addressBook3": {
             "uid": "r2QzX1GKFjfHYtOWHKTYKVR5ITE2",
             "firstName": "jak",
             "lastName": "mena",
-            "tel": "(615) 989 09 09",
+            "tel": 6159890909,
             "email": "jak@gmail.com",
             "address":"23 6th St. Melbourne",
             "zipcode":32904,
-            "state":"FL",
-            "Relationship":"family"
+            "state":"FL"
         },
         "addressBook4": {
             "uid": "r2QzX1GKFjfHYtOWHKTYKVR5ITE2",
             "firstName": "andrew",
             "lastName": "solomon",
-            "tel": "(615) 121 55 65",
+            "tel": 6151215565,
             "email": "andrew@yahoo.com",
             "address":"44 Shirley Ave. West Chicago",
             "zipcode":60185,
-            "state":"IL",
-            "Relationship":"Other"
+            "state":"IL"
         }
     },
     "users": {
@@ -63,7 +58,7 @@
             },
             "user1": {
                 "uid": "r2QzX1GKFjfHYtOWHKTYKVR5ITE2",
-                "username": "SANY2 YOUSIF2"
+                "username": "Maria solomon"
             }
         }
 }

@@ -11,7 +11,6 @@ app.run(function($location, $rootScope, FIREBASE_CONFIG, AuthFactory) {
 
   $rootScope.$on('$routeChangeStart', function(event, currRoute, prevRoute) {
     var logged = AuthFactory.isAuthenticated();
-    console.log("logged is : ",logged );
     var appTo;
 
     if (currRoute.originalPath) {

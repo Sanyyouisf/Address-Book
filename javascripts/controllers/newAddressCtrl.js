@@ -4,7 +4,6 @@ app.controller("newAddressCtrl", function($http, $q,$rootScope, $scope, $locatio
 		$scope.newAddress.uid = $rootScope.user.uid;
 		AddressFactory.postNewAddress($scope.newAddress)
 		.then((reponse)=>{
-			console.log("reponse in Ctrl :",reponse);
 			$scope.newChild= {};
 			$location.url('/addressBooks/list');
 		})

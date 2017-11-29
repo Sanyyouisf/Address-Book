@@ -17,16 +17,12 @@ app.controller("authCtrl", function($rootScope, $location,$scope, AuthFactory, U
     let LogMeIn=()=>{
     	AuthFactory.authenticate($scope.auth)
     	.then((usercreds)=>{
-    		console.log("usercred",usercreds);
     		return UserFactory.getUser(usercreds.uid);
     	}).then((user)=>{
-    		console.log("user",user);
     		$rootScope.user = user;
-            console.log("$rootScope.user.username : ",$rootScope.user.username);
     		$location.url('/addressBooks/list');
     	}).catch((error)=>{
     		$scope.alerts.push({msg: error.message});
-    		console.log("getUser error", error );
     	});
     };
 
@@ -40,14 +36,11 @@ app.controller("authCtrl", function($rootScope, $location,$scope, AuthFactory, U
     $scope.registerUser = () => {    	
     	AuthFactory.registerWithEmail($scope.auth)
     	.then((didRegister)=>{
-    		console.log("you registered ", didRegister);
     		$scope.auth.uid = didRegister.uid;
     		return UserFactory.addUser($scope.auth);
-    		//console.log("$scope.auth inside registerUser",$scope.auth);
     	}, (error) => {
     		console.log("error in registerWithEmail",error);
     	}).then((registerComplete)=>{
-    		console.log("registerComplete",registerComplete);
     		LogMeIn();
     	}).catch((error)=>{
     		console.log("error",error);

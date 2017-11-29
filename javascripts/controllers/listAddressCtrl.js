@@ -15,7 +15,6 @@ app.controller("listAddressCtrl", function($scope, AddressFactory,$rootScope) {
 
 
     $scope.deleteAddress = (id) => {
-        console.log("id inside deleteAddress ",id);
         AddressFactory.deletez(id)
             .then((responce) => {
                 displayUserList();
